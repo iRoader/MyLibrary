@@ -1,9 +1,9 @@
+
 window.onload = function(){
-	
-	// alert(Base.getId("div1").innerHTML);
+	$().getId('box').css('color', 'red').css('background', 'blue');
 
-	alert($("div1").innerHTML);
-
-};
+	$().getTagName('p').html('文件恶化');
 
 
+	// alert(base.getId('box'));
+}
