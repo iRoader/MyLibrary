@@ -1,3 +1,14 @@
 #box {
-  font-size: 50px;
+  font-size: 150px;
+  background-color: pink;
+  
+}
+.a {
+  background-color: pink;
+}
+.c {
+  color: green;
+}
+.d {
+  font-family: "微软雅黑";
 }

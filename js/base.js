@@ -42,6 +42,26 @@ Base.prototype.getClass = function(className, idName){
 	return this;
 }
 
+//添加class
+Base.prototype.addClass = function(className){
+	for (var i = 0; i < this.elements.length; i++) {
+		if(!this.elements[i].className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))){
+			this.elements[i].className += ' ' + className;
+		}		
+	}
+	return this;
+}
+
+//移除class
+Base.prototype.removeClass = function(className){
+	for (var i = 0; i < this.elements.length; i++) {
+		if(this.elements[i].className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))){
+			this.elements[i].className = this.elements[i].className.replace(new RegExp('(\\s|^)' + className + '(\\s|$)'), '');
+		}
+	}
+	return this;
+}
+
 //获取节点数组的某一个
 Base.prototype.getElement = function(num){
 	var element = this.elements[num];
@@ -66,7 +86,31 @@ Base.prototype.css = function(attr, value) {
 	return this;
 };
 
-//
+//添加link或style的css规则
+Base.prototype.addRule = function(num, selectorText, cssText, position){
+	var sheet = document.styleSheets[num];
+
+	if(typeof sheet.insertRule != 'undefined'){		//W3C
+		// sheet.insertRule('body{background:red}', 0);
+		sheet.insertRule(selectorText + '{' + cssText + '}', position);
+	}else if(typeof sheet.addRule != 'undefined'){		//IE
+		sheet.addRule(selectorText, cssText, position);
+	}
+	return this;
+}
+
+//移除link或style的css规则
+Base.prototype.removeRule = function (num, index) {
+	var sheet = document.styleSheets[num];
+	if (typeof sheet.deleteRule != 'undefined') {//W3C
+		sheet.deleteRule(index);
+	} else if (typeof sheet.removeRule != 'undefined') {//IE
+		sheet.removeRule(index);
+	}
+	return this;
+}
+
+//设置innerHTML
 Base.prototype.html = function(value){	
 	for(var i = 0; i < this.elements.length; i++){
 		if (arguments.length == 0) {				//判断没有参数
