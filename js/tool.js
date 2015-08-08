@@ -47,3 +47,20 @@ function deleteRule(sheet, index){
 		sheet.removeRule(index);
 	}
 }
+
+
+//跨浏览器获取event事件
+function getEvent(event){
+	return event || window.event;
+}
+
+//阻止默认行为
+function preDef(event){
+	var e = getEvent(event);
+	if(typeof e.preventDefault != 'undefined'){		//W3C
+		e.preventDefault();
+	}else{		//IE
+		e.returnValue = false;
+	}
+
+}

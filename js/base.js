@@ -159,7 +159,21 @@ Base.prototype.center = function(width, height){
 
 //改变浏览器大小
 Base.prototype.onresize = function(fn){
-	window.onresize = fn;
+	for (var i = 0; i < this.elements.length; i++) {
+		var element = this.elements[i];
+		window.onresize = function(){
+			fn();
+			if(element.offsetLeft > getInner().width - element.offsetWidth){
+				element.style.left = getInner().width - element.offsetWidth + 'px';
+			}
+			if(element.offsetTop > getInner().height - element.offsetWidth){
+				element.style.top = getInner().height - element.offsetHeight + 'px';
+			}
+
+		};
+	}
+
+	
 
 	return this;
 }
@@ -180,4 +194,46 @@ Base.prototype.unlock = function(){
 		this.elements[i].style.display = 'none';
 	}
 	return this;
+}
+
+
+//拖拽功能
+Base.prototype.drag = function(element){
+	for (var i = 0; i < this.elements.length; i++) {
+		this.elements[i].onmousedown = function(e){
+			getEvent(e);
+			var _this = this;
+
+			var difX = e.clientX - _this.offsetLeft;
+			var difY = e.clientY - _this.offsetTop;
+
+			document.onmousemove = function(e){
+				getEvent(e);
+				var left = e.clientX - difX;
+				var top = e.clientY - difY;
+
+				if(left < 0){
+					left = 0;
+				}else if(left > getInner().width - _this.offsetWidth){
+					left = getInner().width - _this.offsetWidth;
+				}
+
+				if(top < 0){
+					top = 0;
+				}else if(top > getInner().height - _this.offsetHeight){
+					top = getInner().height - _this.offsetHeight;
+				}
+
+				_this.style.left = left + 'px';
+				_this.style.top = top + 'px';
+			}
+
+			document.onmouseup = function(){
+				this.onmousemove = null;
+				this.onmouseup = null;
+			}
+		}
+	}
+	return this;
+	
 }

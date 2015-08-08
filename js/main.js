@@ -14,29 +14,26 @@ window.onload = function(){
 	//登陆框弹出
 	var login = $().getId('login');
 	var screen = $().getClass('screen');
-	login.center(400,300).addClass('a').removeClass('a');
-
-	$().onresize(function(){
-		login.center(400,300);
+	login.center(400,300).onresize(function(){
 		screen.lock();
 
 	});
 
 	$().getClass('login').click(function(){
 		login.css('display', 'block');
-		// $().getClass('screen').css('display', 'block');
 		screen.lock();
 	});
 
 	$().getClass('close').click(function(){
 		login.css('display', 'none');
-		// $().getClass('screen').css('display', 'none');
+		login.center(400,300);
 		screen.unlock();
 
 	});
 
-	// $().addRule(0, 'html', 'font-size: 200px', 0);
-	// $().removeRule(0);
-	// $().removeRule(0);
+	
+	//拖拽
+	login.drag();
+	
 
 }
