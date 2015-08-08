@@ -1,11 +1,14 @@
 ﻿//每次返回对象Base， 解决tags数量的冲突
-var $ = function(){
-	return new Base();
+var $ = function(_this){
+	return new Base(_this);
 }
 
-function Base(){
+function Base(_this){
 	//创建一个数组，用来保存获取的节点和节点数组
 	this.elements = [];	
+	if(_this != undefined){		//注意：_this是一个对象，undefined也是一个对象，区别于typeof带单引号的undefined
+		this.elements[0] = _this;
+	}
 }
 
 //获取ID节点
@@ -122,9 +125,35 @@ Base.prototype.html = function(value){
 	return this;
 };
 
+//触发点击事件
 Base.prototype.click = function(fn){
 	for (var i = 0; i < this.elements.length; i++) {
 		this.elements[i].onclick = fn;
+	}
+	return this;
+}
+
+//设置鼠标移入移出事件
+Base.prototype.hover = function(over, out){
+	for (var i = 0; i < this.elements.length; i++) {
+		this.elements[i].onmouseover = over;
+		this.elements[i].onmouseout = out;
+	}
+	return this;
+}
+
+//设置显示
+Base.prototype.show = function(fn){
+	for (var i = 0; i < this.elements.length; i++) {
+		this.elements[i].style.display = "block";
+	}
+	return this;
+}
+
+//设置隐藏
+Base.prototype.hide = function(fn){
+	for (var i = 0; i < this.elements.length; i++) {
+		this.elements[i].style.display = "none";
 	}
 	return this;
 }

@@ -1,15 +1,60 @@
-#box{
-	font-size: 150px;
-}
-.a{
-	background-color: pink;
-}
-// .b{
-// 	font-size: 40px;ssss
-// }
-.c{
-	color: green;
-}
-.d{
-	font-family: "微软雅黑";
+
+#header{
+	height: 40px;
+	background: #404040;
+	margin: 0 auto;
+
+
+	.logo{
+		width: 200px;
+		height: 40px;
+		// background: red;
+		float: left;
+		margin-left: 10%;
+
+	}
+
+	img{
+		height: 40px;
+		border-radius: 10px;
+	}
+
+	.member{
+		width: 100px;
+		height: 45px;
+		background: url(../img/arrow1.png) no-repeat 70px 45%;
+		float: right;
+		margin-right: 10%;
+		line-height: 40px;
+		text-indent: 5px;
+
+		font-family: "微软雅黑";
+		font-size: 14px;
+		font-weight: bold;
+		color: #FFF;
+	}
+	ul{
+		margin-top: 3px;
+		width: 100px;
+		background: pink;
+		border-radius: 10px;
+		padding: 5px 0;
+		display: none;
+	} 
+	ul li{
+		height: 30px;
+		line-height: 30px;
+		text-indent: 30px;
+	}
+	ul li a{
+		display: block;
+		border-radius: 10px;
+
+		color: #666;
+		background: url(../img/arrow3.png) no-repeat 5px center;
+	}
+	ul li a:hover {
+		background:#fc0 url(../img/arrow4.png) no-repeat 5px 45%;
+		color: #333;
+	}
 }

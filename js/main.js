@@ -1,20 +1,14 @@
 
 window.onload = function(){
-	$().getId('box').css('color', 'red').css('background', 'blue');
+	$().getClass('member').hover(function(){
+		// $().getClass('member').css('background', 'url(img/arrow2.png) no-repeat 70px 45%');
+		$(this).css('background', 'url(img/arrow2.png) no-repeat 70px 45%');
+		$().getTagName('ul').show();
+	},function(){
+		// $().getClass('member').css('background', 'url(img/arrow1.png) no-repeat 70px 45%');
+		$(this).css('background', 'url(img/arrow1.png) no-repeat 70px 45%');
+		$().getTagName('ul').hide();
 
-	// $().getTagName('p').html('就嗲回复');
-
-	// alert($().getTagName('p').html());
-
-	// alert($().getId('box').css('font-size'));
-
-	// $().getClass('pox').getElement(2).css('color', 'red').css('background', 'green');
-	// alert(base.getId('box'));
-
-	// var item = document.getElementById('box');
-
-	// alert(item.style.color);
-
-	$().getClass('pox', 'box').getElement(1).css('color', 'red').css('background', 'green');
+	})
 
 }
