@@ -1,8 +1,40 @@
+//设置圆角兼容性
+.border_radius(@radius: 5px){
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+}
+//旋转放大兼容性
+.transform(@rotate: 0deg, @scaleX: 1, @scaleY: 1){
+	-webkit-transform: rotate(@rotate) scale(@scaleX, @scaleY);
+	-moz-transform: rotate(@rotate) scale(@scaleX, @scaleY);
+	-o-transform: rotate(@rotate) scale(@scaleX, @scaleY);
+	transform: rotate(@rotate) scale(@scaleX, @scaleY);
+}
+//动画过度效果兼容性
+.transiton(@property, @duration: 1s, @timing-function: linear, @delay: 0){
+	-webkit-transition: @property @duration @timing-function @delay;
+	-moz-transition: @property @duration @timing-function @delay;
+	-o-transition: @property @duration @timing-function @delay;
+	transition: @property @duration @timing-function @delay;
+
+}
+//字体样式
+.font_style(@size: 12px, @weight: bold, @family: "微软雅黑", @letter: 1px){
+	font-size: @size;
+	font-weight: @weight;
+	font-family: @family;	
+	letter-spacing: @letter;
+}
 
 #header{
 	height: 40px;
 	background: #404040;
+	color: #FFF;
 	margin: 0 auto;
+
+	.font_style(14px);
 
 
 	.logo{
@@ -16,10 +48,11 @@
 
 	img{
 		height: 40px;
-		border-radius: 10px;
+
+		.border_radius(10px);
 	}
 
-	.member{
+	.member_ul{
 		width: 100px;
 		height: 45px;
 		background: url(../img/arrow1.png) no-repeat 70px 45%;
@@ -28,18 +61,17 @@
 		line-height: 40px;
 		text-indent: 5px;
 
-		font-family: "微软雅黑";
-		font-size: 14px;
-		font-weight: bold;
-		color: #FFF;
+		
+		cursor: pointer;
 	}
 	ul{
 		margin-top: 3px;
 		width: 100px;
 		background: pink;
-		border-radius: 10px;
 		padding: 5px 0;
 		display: none;
+
+		.border_radius(10px);
 	} 
 	ul li{
 		height: 30px;
@@ -48,13 +80,105 @@
 	}
 	ul li a{
 		display: block;
-		border-radius: 10px;
-
 		color: #666;
 		background: url(../img/arrow3.png) no-repeat 5px center;
+
+		.border_radius(10px);
 	}
 	ul li a:hover {
 		background:#fc0 url(../img/arrow4.png) no-repeat 5px 45%;
 		color: #333;
 	}
+
+	.login{
+		width: 80px;
+		height: 40px;
+		line-height: 40px;
+		background: url(../img/login.png) no-repeat left center;
+		cursor: pointer;
+		float: right;
+		text-indent: 30px;
+	}
 }
+
+#login{
+	width: 400px;
+	height: 300px;
+	background: pink;
+	position: absolute;
+	display: none;
+
+	.border_radius(20px);	
+
+	h2{
+
+		.font_style(18px);
+		
+		text-align: center;
+		height: 40px;
+		line-height: 40px;
+		background: #0ff;
+		color: #333;
+		letter-spacing: 1px;
+		margin-bottom: 20px;
+
+		.border_radius(20px);	
+
+	}
+	h2 img{
+		position: relative;
+		float: right;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+
+		.transform(0);
+		
+		.transiton(transform, 2s, 0, 0);
+	}
+	h2 img:hover{
+		.transform(150deg);
+	}
+
+	.user, .password, .button{
+
+		.font_style(14px);
+
+		color: #666;
+		padding: 10px 0;
+		text-align: center;
+	}
+
+	.text{
+		width: 250px;
+		height: 35px;
+		background: #FFF;
+		border: none;
+
+		.border_radius(10px);
+	}
+
+	.submit{
+		text-align: center;
+		margin: 10px auto;
+	}
+	.button{
+		width: 150px;
+		background: #42D77B;
+		border:none;
+
+		.border_radius(10px);
+	}
+
+	.help{
+
+		.font_style();
+		
+		float: right;
+		padding: 25px 20px;
+		cursor: pointer;
+		color: #666;	
+	}
+
+}
+

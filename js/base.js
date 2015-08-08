@@ -157,3 +157,23 @@ Base.prototype.hide = function(fn){
 	}
 	return this;
 }
+
+//设置盒子居中显示
+Base.prototype.center = function(width, height){
+	var left = (document.documentElement.clientWidth - width) / 2;
+	var top = (document.documentElement.clientHeight - height) / 2;
+
+	for (var i = 0; i < this.elements.length; i++) {
+		this.elements[i].style.left = left + 'px';
+		this.elements[i].style.top = top + 'px';
+
+	}
+	return this;
+}
+
+//
+Base.prototype.onresize = function(fn){
+	window.onresize = fn;
+	
+	return this;
+}
