@@ -30,6 +30,7 @@
 
 #header{
 	height: 40px;
+	min-width: 400px;
 	background: #404040;
 	color: #FFF;
 	margin: 0 auto;
@@ -38,7 +39,6 @@
 
 
 	.logo{
-		width: 200px;
 		height: 40px;
 		// background: red;
 		float: left;
@@ -101,12 +101,26 @@
 	}
 }
 
+.screen{
+	position: absolute;
+	left: 0;
+	top: 0;
+	// width: 100%;
+	// height: 100%;
+	display: none;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 8888;
+	// filter:alpha(opacity=30);
+	// opacity: 0.3;
+}
+
 #login{
 	width: 400px;
 	height: 300px;
 	background: pink;
 	position: absolute;
 	display: none;
+	z-index: 9999;
 
 	.border_radius(20px);	
 
@@ -126,7 +140,7 @@
 
 	}
 	h2 img{
-		position: relative;
+		position: absolute;
 		float: right;
 		top: 10px;
 		right: 10px;
@@ -147,6 +161,9 @@
 		color: #666;
 		padding: 10px 0;
 		text-align: center;
+	}
+	input{
+		.font_style(14px, none);
 	}
 
 	.text{

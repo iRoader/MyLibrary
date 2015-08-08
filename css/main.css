@@ -1,5 +1,6 @@
 #header {
   height: 40px;
+  min-width: 400px;
   background: #404040;
   color: #FFF;
   margin: 0 auto;
@@ -9,7 +10,6 @@
   letter-spacing: 1px;
 }
 #header .logo {
-  width: 200px;
   height: 40px;
   float: left;
   margin-left: 10%;
@@ -69,12 +69,21 @@
   float: right;
   text-indent: 30px;
 }
+.screen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 8888;
+}
 #login {
   width: 400px;
   height: 300px;
   background: pink;
   position: absolute;
   display: none;
+  z-index: 9999;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -o-border-radius: 20px;
@@ -97,7 +106,7 @@
   border-radius: 20px;
 }
 #login h2 img {
-  position: relative;
+  position: absolute;
   float: right;
   top: 10px;
   right: 10px;
@@ -127,6 +136,12 @@
   color: #666;
   padding: 10px 0;
   text-align: center;
+}
+#login input {
+  font-size: 14px;
+  font-weight: none;
+  font-family: "微软雅黑";
+  letter-spacing: 1px;
 }
 #login .text {
   width: 250px;
